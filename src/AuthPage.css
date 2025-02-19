@@ -1,0 +1,31 @@
+.auth-page {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .auth-page h2 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .auth-page button {
+    width: 100%;
+  }
+  
+  .auth-page p {
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+    color: #007bff;
+  }
+  
+  .auth-page p:hover {
+    text-decoration: underline;
+  }
+  
