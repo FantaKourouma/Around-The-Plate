@@ -1,0 +1,260 @@
+.search-results {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf3 100%);
+}
+
+.search-header {
+  background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+  padding: 2rem 0;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  color: #a8c7ff;
+  transform: translateX(-5px);
+}
+
+.back-button i {
+  margin-right: 0.5rem;
+}
+
+.results-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.results-count {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.recipe-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.recipe-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.recipe-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.recipe-card:hover .recipe-image img {
+  transform: scale(1.05);
+}
+
+.recipe-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-badge.vegetarian i {
+  color: #2e7d32;
+}
+
+.recipe-content {
+  padding: 1.5rem;
+}
+
+.recipe-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #2a5298;
+}
+
+.recipe-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.recipe-details span {
+  display: flex;
+  align-items: center;
+}
+
+.recipe-details i {
+  margin-right: 0.5rem;
+  color: #2a5298;
+}
+
+.recipe-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  transform: scale(1.05);
+}
+
+.tag.vegetarian {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.tag.vegan {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.tag.gluten-free {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+.tag.dairy-free {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.health-score {
+  background: #fdf2e9;
+  color: #ed6c02;
+}
+
+.view-recipe-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.view-recipe-btn:hover {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  transform: translateY(-2px);
+}
+
+.view-recipe-btn i {
+  margin-left: 0.5rem;
+}
+
+.no-results {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.no-results i {
+  font-size: 3rem;
+  color: #2a5298;
+  margin-bottom: 1rem;
+}
+
+.no-results p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+@media (max-width: 768px) {
+  .search-header {
+    padding: 1.5rem 0;
+  }
+
+  .results-title {
+    font-size: 2rem;
+  }
+
+  .recipes-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+  }
+
+  .recipe-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+/* Animation for cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.recipe-card {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.recipe-card:nth-child(2) { animation-delay: 0.1s; }
+.recipe-card:nth-child(3) { animation-delay: 0.2s; }
+.recipe-card:nth-child(4) { animation-delay: 0.3s; }
+.recipe-card:nth-child(5) { animation-delay: 0.4s; }
+.recipe-card:nth-child(6) { animation-delay: 0.5s; }

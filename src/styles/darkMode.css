@@ -1,0 +1,184 @@
+/* Base dark mode styles */
+.dark-mode {
+  background-color: #1a1a1a;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* Hero Section dark mode */
+.dark-mode .hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+              url('/src/assets/hero-bg.jpg') center/cover;
+}
+
+.dark-mode .hero-section h1,
+.dark-mode .hero-section p {
+  color: #fff;
+}
+
+.dark-mode .search-bar input {
+  background: #2d2d2d;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.dark-mode .search-bar input::placeholder {
+  color: #888;
+}
+
+/* Featured Recipes dark mode */
+.dark-mode .featured-recipes {
+  background-color: #1a1a1a;
+}
+
+.dark-mode .featured-recipes h2 {
+  color: #fff;
+}
+
+.dark-mode .recipe-card {
+  background: #2d2d2d;
+  border: 1px solid #444;
+}
+
+.dark-mode .recipe-card h3 {
+  color: #fff;
+}
+
+.dark-mode .recipe-card p {
+  color: #ccc;
+}
+
+.dark-mode .recipe-details span {
+  color: #aaa;
+}
+
+/* Auth page dark mode */
+.dark-mode .auth-page {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.dark-mode .auth-box {
+  background: #2d2d2d;
+  border: 1px solid #444;
+}
+
+.dark-mode .auth-form input {
+  background: #363636;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+/* Meal Planner dark mode */
+.dark-mode .meal-planner {
+  background-color: #1a1a1a;
+}
+
+.dark-mode .calendar-section,
+.dark-mode .meals-section {
+  background: #2d2d2d;
+  border: 1px solid #444;
+}
+
+.dark-mode .react-calendar {
+  background: #2d2d2d;
+  border: 1px solid #444;
+}
+
+.dark-mode .react-calendar__tile {
+  color: #fff;
+}
+
+.dark-mode .react-calendar__month-view__days__day--weekend {
+  color: #ff8a8a;
+}
+
+.dark-mode .meal-card {
+  background: #363636;
+  border: 1px solid #444;
+}
+
+/* Search Results dark mode */
+.dark-mode .search-results {
+  background-color: #1a1a1a;
+}
+
+.dark-mode .results-title {
+  color: #fff;
+}
+
+.dark-mode .recipe-card {
+  background: #2d2d2d;
+  border: 1px solid #444;
+}
+
+.dark-mode .recipe-content h3 {
+  color: #fff;
+}
+
+.dark-mode .recipe-details {
+  color: #ccc;
+}
+
+.dark-mode .tag {
+  opacity: 0.9;
+}
+
+/* Common elements */
+.dark-mode button {
+  background: #363636;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.dark-mode button:hover {
+  background: #444;
+}
+
+.dark-mode a {
+  color: #7367F0;
+}
+
+.dark-mode .container {
+  background-color: transparent;
+}
+
+/* Scrollbar for dark mode */
+.dark-mode ::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dark-mode ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 5px;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.dark-mode .auth-header h2,
+.dark-mode .auth-form input {
+  color: #fff;
+}
+
+.dark-mode .auth-form label {
+  background: #363636;
+}
+
+.dark-mode .social-button {
+  background: #363636;
+  border-color: #444;
+  color: #fff;
+}
+
+.dark-mode .meal-planner-header {
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+}
+
+.dark-mode .no-meals {
+  color: #ccc;
+}

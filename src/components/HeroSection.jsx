@@ -1,65 +1,77 @@
-import React, { useState } from 'react'; 
-import { getRecipes } from '../api/recipeApi'; // Import your API function
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getRecipes } from '../api/recipeApi';
+import './HeroSection.css';
 
 const HeroSection = () => {
-  const [searchQuery, setSearchQuery] = useState(''); // State for the search input
-  const [recipes, setRecipes] = useState([]); // State to hold fetched recipes
+  const [searchQuery, setSearchQuery] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-  const handleSearch = async () => {
-    if (searchQuery.trim()) {
-      const result = await getRecipes(searchQuery);  // Fetch recipes based on the search
-      setRecipes(result);  // Store the fetched recipes in state
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    if (!searchQuery.trim()) return;
+
+    try {
+      setLoading(true);
+      setError(null);
+      const results = await getRecipes(searchQuery);
+      
+      if (!results || results.length === 0) {
+        setError('No recipes found. Please try a different search term.');
+        return;
+      }
+
+      navigate('/search-results', { state: { recipes: results, query: searchQuery } });
+    } catch (err) {
+      setError(err.message || 'Failed to fetch recipes. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <header className="hero-section text-center p-5 d-flex flex-column align-items-center justify-content-center text-white">
-      <div className="container">
-        <h1 className="display-4 fw-bold">Around the Plate</h1>
-        <p className="lead">Search for your favorite dishes.</p>
-
-        {/* Search Bar */}
-        <div className="search-bar w-50 mx-auto mt-4">
-          <input
-            type="text"
-            className="form-control rounded-pill"
-            placeholder="Search for recipes..."
-            value={searchQuery}  // Bind the input value to state
-            onChange={(e) => setSearchQuery(e.target.value)}  // Update state on change
-          />
-          <button
-            className="btn btn-primary rounded-pill mt-2"
-            onClick={handleSearch}  // Call handleSearch when clicked
-          >
-            Search
-          </button>
+    <div className="hero-container">
+      <div className="hero-content">
+        <div className="hero-text">
+          <h1>Around the Plate</h1>
+          <p>Discover delicious recipes from around the world</p>
         </div>
 
-        {/* Display Recipes */}
-        <div className="recipes mt-4">
-          {recipes.length > 0 ? (
-            <div>
-              {recipes.map((recipe) => (
-                <div key={recipe.id} className="recipe-item">
-                  <h3>{recipe.title}</h3>
-                  <img src={recipe.image} alt={recipe.title} width={200} />
-                  <p>{recipe.summary}</p>
-                  <a
-                    href={`https://spoonacular.com/recipes/${recipe.title}-${recipe.id}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View Recipe
-                  </a>
-                </div>
-              ))}
+        <div className="search-section">
+          <form onSubmit={handleSearch} className="search-form">
+            <div className="search-bar">
+              <input
+                type="text"
+                placeholder="Search for recipes..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                disabled={loading}
+              />
+              <button type="submit" disabled={loading}>
+                {loading ? (
+                  <span className="loading-spinner">
+                    <i className="fas fa-spinner fa-spin"></i>
+                  </span>
+                ) : (
+                  <i className="fas fa-search"></i>
+                )}
+              </button>
             </div>
-          ) : (
-            <p>No recipes found. Try searching with different terms!</p>
-          )}
+            {error && <div className="error-message">{error}</div>}
+          </form>
+
+          <div className="popular-searches">
+            <span>Popular:</span>
+            <button onClick={() => setSearchQuery('pasta')}>Pasta</button>
+            <button onClick={() => setSearchQuery('chicken')}>Chicken</button>
+            <button onClick={() => setSearchQuery('vegetarian')}>Vegetarian</button>
+            <button onClick={() => setSearchQuery('dessert')}>Dessert</button>
+          </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 };
 

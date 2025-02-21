@@ -1,0 +1,72 @@
+.nav-auth {
+  display: flex;
+  align-items: center;
+}
+
+/* Light theme styles */
+.navbar.navbar-light {
+  background: #a4e1f7 !important; /* Baby blue background */
+}
+
+.navbar.navbar-light .nav-link,
+.navbar.navbar-light .navbar-brand {
+  color: #2b7a9e !important; /* Darker baby blue for text */
+}
+
+.auth-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.auth-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.auth-link i {
+  font-size: 1.2rem;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: #2b7a9e; /* Darker baby blue */
+  padding: 0.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  opacity: 0.8;
+}
+
+/* Dark mode styles */
+.navbar.navbar-dark {
+  background: #0e0e0e !important;
+}
+
+.navbar.navbar-dark .nav-link,
+.navbar.navbar-dark .navbar-brand {
+  color: #e707a7;
+}
+
+.navbar.navbar-dark .auth-link {
+  color: #f10e8b;
+}
+
+.navbar.navbar-dark .theme-toggle {
+  color: #f7f4fd;
+}
+
+@media (max-width: 768px) {
+  .nav-auth {
+    margin-top: 1rem;
+  }
+} 

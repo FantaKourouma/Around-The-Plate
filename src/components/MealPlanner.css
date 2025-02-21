@@ -1,0 +1,323 @@
+.meal-planner {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a4e1f7 0%, #7367F0 100%);
+  padding: 3rem 0;
+}
+
+.meal-planner-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.meal-planner-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.meal-planner-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Layout for side by side display */
+.planner-content {
+  display: flex;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Calendar Section */
+.calendar-section {
+  flex: 0 0 350px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+
+/* Meals Section */
+.meals-section {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.meal-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.meal-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.meal-card:hover {
+  transform: translateY(-5px);
+}
+
+.meal-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e1e1e1;
+}
+
+.meal-icon {
+  font-size: 1.5rem;
+}
+
+.meal-items {
+  min-height: 100px;
+}
+
+.no-meals {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+.add-meal-btn {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background: #7367F0;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.add-meal-btn:hover {
+  background: #5E50EE;
+}
+
+/* Calendar Styling */
+.react-calendar {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+}
+
+.react-calendar__tile {
+  padding: 1em 0.5em;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.react-calendar__tile--active {
+  background: #7367F0 !important;
+  color: white;
+}
+
+.react-calendar__tile:enabled:hover {
+  background: #a4e1f7 !important;
+  color: #2b7a9e;
+}
+
+/* Dark mode adjustments */
+.dark-mode .meal-planner {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.dark-mode .calendar-section,
+.dark-mode .meals-section {
+  background: rgba(45, 45, 45, 0.9);
+}
+
+.dark-mode .meal-card {
+  background: #363636;
+  border: 1px solid #444;
+}
+
+.dark-mode .react-calendar {
+  background: #2d2d2d;
+  color: #fff;
+}
+
+.dark-mode .react-calendar__tile:enabled:hover {
+  background: #444 !important;
+  color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .planner-content {
+    flex-direction: column;
+  }
+
+  .calendar-section {
+    flex: none;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+  }
+
+  .meals-section {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .meal-planner {
+    padding: 2rem 1rem;
+  }
+
+  .calendar-section,
+  .meals-section {
+    padding: 1.5rem;
+  }
+
+  .meal-planner-header h1 {
+    font-size: 2rem;
+  }
+
+  .meal-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Add these new styles to your existing CSS */
+
+.meal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.meal-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+}
+
+.delete-meal-btn {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  padding: 0.25rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.delete-meal-btn:hover {
+  opacity: 1;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h3 {
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.modal-actions button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.modal-actions button:first-child {
+  background: #f8f9fa;
+  color: #2c3e50;
+}
+
+.modal-actions .save-btn {
+  background: #7367F0;
+  color: white;
+}
+
+.modal-actions button:hover {
+  transform: translateY(-2px);
+}
+
+/* Dark mode adjustments */
+.dark-mode .modal-content {
+  background: #2d2d2d;
+  color: #fff;
+}
+
+.dark-mode .modal-content input {
+  background: #363636;
+  border-color: #444;
+  color: #fff;
+}
+
+.dark-mode .modal-actions button:first-child {
+  background: #363636;
+  color: #fff;
+}
+
+.dark-mode .meal-item {
+  background: rgba(255, 255, 255, 0.1);
+}
